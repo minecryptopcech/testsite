@@ -1,0 +1,415 @@
+/* дарк для браузера */
+:root {
+  color-scheme: dark;
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+
+
+/* фиксированное меню (декстоп главная) */
+.uc-desktopheader01 {
+  position: sticky;
+  top: 0;
+  height: 130px;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+/*  фиксированное меню (декстоп главная) 50% прозрачности */
+.uc-desktopheader01.scrolled {
+  opacity: 0.5;
+  position: -webkit-sticky;
+}
+
+.uc-desktopheader01.scrolled:hover {
+  opacity: 1; /* При наведении возвращаем полную непрозрачность */
+}
+
+/*  фиксированное меню (декстоп главная) Следующий блок */
+.uc-desktopheader01 + .t-rec {
+  margin-top: -130px;
+  padding-top: 0px;
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+
+
+/* шапка без меню */
+.uc-desktopheader02 {
+  position: sticky;
+  top: 0;
+  height: 130px;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+/*  фиксированное меню (декстоп главная) Следующий блок */
+.uc-desktopheader02 + .t-rec {
+  margin-top: -130px;
+  padding-top: 0px;
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+
+/* Стили для нопки с иконкой - класс (добавить если нет) button-bl-gr подложка над (исчезает), button-bg подложка под (остается) */
+/* Основной стиль для button-bg */
+.button-bl-gr {
+  cursor: pointer; /* Всегда показывает палец (указатель) при наведении */
+}
+
+/* Стили для элемента, который будет исчезать */
+.button-bg {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              visibility 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Анимация исчезновения при наведении */
+.button-bl-gr:hover .button-bg {
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: 0s;
+}
+
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* стиль для текста и стрелки в пунктах FAQ */
+/* Базовые стили для элементов */
+.faq-text {
+  transform: translateX(0);
+  transition: transform 0.2s ease;
+}
+
+.faq-arrow {
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
+
+/* Эффекты при наведении на faq-p */
+.faq-p:hover .faq-text {
+  transform: translateX(12px);
+}
+
+.faq-p:hover .faq-arrow {
+  transform: scale(0.8);
+}
+
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+
+/* Анимация полосы загрузки на главной v2 кусок 1*/
+/* Основные стили прогресс-бара */
+.progressLine02 {
+  width: 100%;
+  height: 10px;
+  background-color: #161616; /* Цвет фона */
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Анимированная часть - начальное состояние */
+.progressLine02::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #2196F3; /* Цвет заполнения */
+  
+  /* Изначально анимация отключена */
+  animation: none;
+}
+
+/* Анимация при появлении в viewport */
+.progressLine02.in-view::after {
+  animation: progressFillPaused03 8s linear 0s forwards
+}
+
+@keyframes progressFillPaused03 {
+  /* Этап 1: 0% → 25% за 1.25s */
+  0% {
+    width: 0%;
+  }
+  15.625% {  /* (1.25s / 8s) * 100 = 15.625% */
+    width: 25%;
+  }
+  /* Пауза 1s (25%) */
+  15.625%,
+  28.125% {  /* 15.625% + (1s / 8s * 100) = 28.125% */
+    width: 25%;
+  }
+  /* Этап 2: 25% → 50% за 1.25s */
+  28.125% {
+    width: 25%;
+  }
+  43.75% {  /* 28.125% + 15.625% = 43.75% */
+    width: 50%;
+  }
+  /* Пауза 1s (50%) */
+  43.75%,
+  56.25% {
+    width: 50%;
+  }
+  /* Этап 3: 50% → 75% за 1.25s */
+  56.25% {
+    width: 50%;
+  }
+  71.875% {  /* 56.25% + 15.625% = 71.875% */
+    width: 75%;
+  }
+  /* Пауза 1s (75%) */
+  71.875%,
+  84.375% {
+    width: 75%;
+  }
+  /* Этап 4: 75% → 100% за 1.25s */
+  84.375% {
+    width: 75%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+
+/* Анимация полосы загрузки на AML v2 кусок Green01*/
+/* Основные стили прогресс-бара */
+.progressLine03 {
+  width: 100%;
+  height: 10px;
+  background-color: #0C341D; /* Цвет фона */
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Анимированная часть - начальное состояние */
+.progressLine03::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #27AE60; /* Цвет заполнения */
+  animation: none;
+}
+
+/* Определение анимации */
+@keyframes progressFillGreen01 {
+  0% { width: 0%; }
+  100% { width: 92%; }
+}
+
+/* Анимация при появлении в viewport */
+.progressLine03.in-view::after {
+  animation: progressFillGreen01 2s linear forwards;
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+/* Анимация полосы загрузки на AML v2 кусок 1 Orange01*/
+/* Основные стили прогресс-бара */
+.progressLine04 {
+  width: 100%;
+  height: 10px;
+  background-color: #492E16; /* Цвет фона */
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Анимированная часть - начальное состояние */
+.progressLine04::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #F2994A; /* Цвет заполнения */
+  animation: none;
+}
+
+/* Определение анимации */
+@keyframes progressFillOrange01 {
+  0% { width: 0%; }
+  100% { width: 60%; }
+}
+
+/* Анимация при появлении в viewport */
+.progressLine04.in-view::after {
+  animation: progressFillOrange01 2s linear forwards;
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+/* Анимация полосы загрузки на AML v2 кусок 1 Red01*/
+/* Основные стили прогресс-бара */
+.progressLine05 {
+  width: 100%;
+  height: 10px;
+  background-color: #4B2430; /* Цвет фона */
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Анимированная часть - начальное состояние */
+.progressLine05::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #EB5757; /* Цвет заполнения */
+  animation: none;
+}
+
+/* Определение анимации */
+@keyframes progressFillRed01 {
+  0% { width: 0%; }
+  100% { width: 30%; }
+}
+
+/* Анимация при появлении в viewport */
+.progressLine05.in-view::after {
+  animation: progressFillRed01 2s linear forwards;
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+
+/* Стили для ссылок меню футера и хедер */
+.link-header-footer {
+    color: #ffffff; /* Исходный цвет текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    display: inline-block; /* Для корректной работы подчёркивания */
+    position: relative; /* Нужно для псевдоэлемента */
+    transition: color 0.3s ease; /* Плавность изменения цвета */
+}
+
+.link-header-footer::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Сдвигаем подчёркивание ниже текста */
+    width: 0;
+    height: 1px; /* Толщина линии */
+    background-color: currentColor; /* Цвет как у текста */
+    transition: width 0.3s ease; /* Плавное появление */
+}
+
+.link-header-footer:hover {
+    opacity: 0.8 !important;
+}
+
+.link-header-footer:hover::after {
+    width: 100%; /* Полная ширина подчёркивания */
+}
+
+
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+/* для поп-ап окон */
+.t-popup__container {
+    background: #000000;
+}
+
+.t-quiz {
+   --panel-default-bg-color: #000000; 
+}    
+    
+.t-descr_md {
+    font-size: 16px;
+}    
+    
+.t-input {
+    height: 52px;
+}
+
+.t702 .t-input-group {
+    margin-bottom: 15px;
+}
+
+.t702 .t-form__inputsbox_flex .t-form__submit {
+    margin-top: 10px;
+}
+
+.t702 .t-input-subtitle {
+    padding-bottom: 5px;
+}
+
+
+.t-quiz__result_block .t-quiz__result-img-wrapper {
+    height: 200px;
+    background-size: auto;
+}
+
+.t-form-success-popup_new .t-form-success-popup__wrapper {
+background-color: #17191D;
+}
+
+.t-form-success-popup__wrapper {
+background-color: #17191D  !important;
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+
+/* на общей странице блога эффект при наведении синяя тень цвет */
+.uc-blogms .t-feed__col-grid__post-wrapper:hover {
+    box-shadow: 0px 10px 25px 0px rgb(21 101 192 / 45%) !important;
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
